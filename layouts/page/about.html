@@ -1,0 +1,29 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "single" }}
+  {{ $aboutImg := resources.Get "img/about(2).jpg" }}
+  <article>
+    <header class="mt-5 max-w-prose">
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        {{ .Title | emojify }}
+      </h1>
+    </header>
+
+    <section class="about-layout mt-6">
+      {{/* Left: content */}}
+      <div class="about-content prose dark:prose-invert">
+        {{ .Content }}
+      </div>
+
+      {{/* Right: vertical image */}}
+      {{ with $aboutImg }}
+      <div class="about-image">
+        <img
+          src="{{ .RelPermalink }}"
+          alt="Brad Kreider"
+          class="about-photo"
+          loading="lazy">
+      </div>
+      {{ end }}
+    </section>
+  </article>
+{{ end }}

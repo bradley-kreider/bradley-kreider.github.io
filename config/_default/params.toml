@@ -39,7 +39,7 @@ autoSwitchAppearance = false
   showRelatedContent  = true
   relatedContentLimit = 3
   showEdit            = false
-  sharingLinks        = ["twitter", "linkedin", "reddit"]
+  sharingLinks        = ["linkedin"]
 
 # -- List --
 [list]

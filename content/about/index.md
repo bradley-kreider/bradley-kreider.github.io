@@ -4,21 +4,41 @@ description: "A bit more about Brad Kreider."
 showReadingTime: false
 showDate: false
 showAuthor: false
+showHero: false
+sharingLinks: false
+layout: "about"
 ---
 
-## Hello
+## Hey, I'm Brad
 
-I'm Brad Kreider, a developer based in the Cumberland Valley. I work primarily with Python, R, and Java and have a strong interest in data science.
+I'm a Data and Computer Science student at Messiah University, based in the Cumberland Valley of Pennsylvania. I work primarily with Python, R, and Java, and I'm drawn to the places where data, code, and real-world problems intersect.
 
-Outside of work, you'll find me:
+When I'm not writing code or crunching data, you'll probably find me:
 
-- Standing in a river with a fly rod, trying to convince a trout I know what I'm doing
+- Waist-deep in a river with a fly rod, trying to convince a trout I know what I'm doing
+- Running or cycling through the valley (the Strava widget on the homepage keeps me honest)
 - Tinkering with side projects that may or may not ever see the light of day
 
 ## This Site
 
-This is my personal corner of the internet — a place to write about fly fishing, tech, and whatever else I'm thinking about. Built with [Hugo](https://gohugo.io/) and the [Blowfish](https://blowfish.page/) theme. Hosted on GitHub Pages.
+This is my personal corner of the internet — a place to write about fly fishing, tech, data, and whatever else I'm thinking about. Built with [Hugo](https://gohugo.io/) and the [Blowfish](https://blowfish.page/) theme, hosted on GitHub Pages.
 
-## Get in Touch
+## Find Me Elsewhere
 
-The best way to reach me is via [GitHub](https://github.com/bradley-kreider) or the social links in the sidebar. I'm always happy to talk about trout, code, or both.
+{{< button href="https://github.com/bradley-kreider" target="_blank" >}}
+{{< icon "github" >}} GitHub
+{{< /button >}}
+
+{{< button href="https://www.linkedin.com/in/bradleykreider/" target="_blank" >}}
+{{< icon "linkedin" >}} LinkedIn
+{{< /button >}}
+
+{{< button href="https://www.strava.com/athletes/bradley-kreider" target="_blank" >}}
+Strava
+{{< /button >}}
+
+{{< button href="https://www.instagram.com/brad_kreider/" target="_blank" >}}
+{{< icon "instagram" >}} Instagram
+{{< /button >}}
+
+Always happy to talk about trout, code, or both.

@@ -408,3 +408,83 @@ html, body, * {
   width: 100%;
   height: 100%;
 }
+
+/* ── About Page Layout ───────────────────────────────────── */
+.about-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .about-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+}
+
+.about-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-image {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .about-image {
+    width: 280px;
+    position: sticky;
+    top: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-image {
+    width: 320px;
+  }
+}
+
+.about-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  border: 3px solid rgb(var(--color-primary-400));
+  object-fit: cover;
+}
+
+/* ── Orange Accent Enhancements ──────────────────────────── */
+
+/* Headings get a subtle orange left border */
+.about-content h2 {
+  border-left: 3px solid rgb(var(--color-primary-400));
+  padding-left: 0.75rem;
+}
+
+/* Bullet points use orange */
+.about-content li::marker {
+  color: rgb(var(--color-primary-400));
+}
+
+
+/* Bento headings — orange icon tint */
+.bento-heading svg {
+  color: rgb(var(--color-primary-400));
+}
+
+/* Homepage hero name — orange underline accent */
+.bento-hero h1 {
+  border-bottom: 3px solid rgb(var(--color-primary-400));
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+/* Links in prose get orange hover */
+.prose a:hover {
+  color: rgb(var(--color-primary-400)) !important;
+}
