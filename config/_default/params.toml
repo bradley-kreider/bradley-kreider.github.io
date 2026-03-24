@@ -1,7 +1,7 @@
 # -- Appearance --
 colorScheme         = "brooktrout"
 defaultAppearance   = "light"
-autoSwitchAppearance = true
+autoSwitchAppearance = false
 
 # -- Header --
 [header]
@@ -9,7 +9,7 @@ autoSwitchAppearance = true
 
 # -- Footer --
 [footer]
-  showAppearanceSwitcher = true
+  showAppearanceSwitcher = false
   showScrollToTop        = true
   showCopyright          = true
 
