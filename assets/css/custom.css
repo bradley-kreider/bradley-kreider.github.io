@@ -73,9 +73,21 @@ html, body, * {
 
   .bento-hero     { grid-column: 1 / -1; }
   .bento-articles { grid-column: 1; grid-row: 2; }
-  .bento-social   { grid-column: 2; grid-row: 2; }
-  .bento-github   { grid-column: 1; grid-row: 3; }
-  .bento-strava   { grid-column: 2; grid-row: 3; }
+  .bento-sidebar  { grid-column: 2; grid-row: 2; }
+}
+
+/* Sidebar: stacks social + github vertically on the right */
+.bento-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+@media (min-width: 580px) {
+  .bento-sidebar { gap: 1.5rem; }
+}
+@media (min-width: 768px) {
+  .bento-sidebar { gap: 1.75rem; }
 }
 
 /* Desktop (768px): polish spacing */
@@ -148,12 +160,30 @@ html, body, * {
   height: 1.2rem;
 }
 
-/* Strava heading icon keeps its brand color */
-.bento-strava .bento-heading svg {
-  color: #FC4C02;
+/* Social card — compact */
+.bento-social {
+  padding: 1rem;
 }
 
+/* GitHub card in sidebar — show full chart, scaled to fit */
+
+
+
 /* ── Strava Widget ─────────────────────────────────────────── */
+.strava-section {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .strava-section { padding: 0 1.5rem 2rem; }
+}
+@media (min-width: 1024px) {
+  .strava-section { padding: 0 2rem 2rem; }
+}
+
 .strava-card {
   display: block;
   border-radius: 0.75rem;

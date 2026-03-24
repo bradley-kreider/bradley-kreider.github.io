@@ -107,13 +107,13 @@
     {{ partial "recent-articles/main.html" . }}
   </section>
 
-  {{/* ── Row 2 right: Social Links ── */}}
-  {{ partial "social.html" . }}
-
-  {{/* ── Row 3 left: GitHub Contributions ── */}}
-  {{ partial "github.html" . }}
-
-  {{/* ── Row 3 right: Strava Activity ── */}}
-  {{ partial "strava.html" . }}
+  {{/* ── Row 2 right: Social + GitHub stacked ── */}}
+  <div class="bento-sidebar">
+    {{ partial "social.html" . }}
+    {{ partial "github.html" . }}
+  </div>
 
 </div>
+
+{{/* ── Strava: full-width below grid ── */}}
+{{ partial "strava.html" . }}
