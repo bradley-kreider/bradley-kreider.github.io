@@ -1,0 +1,23 @@
+languageCode = "en"
+languageName = "English"
+weight       = 1
+title        = "Brad Kreider"
+
+[params]
+  displayName = "EN"
+  isoCode     = "en"
+  rtl         = false
+  dateFormat  = "January 2, 2006"
+  description = "Brad Kreider — developer, thinker, fly fisherman."
+
+[params.author]
+  name     = "Brad Kreider"
+  image    = "img/avatar.jpg"
+  headline = "Developer & Outdoorsman"
+  bio      = "I build things with code and find peace on the water. Writing about software, side projects, and fly fishing."
+  links    = [
+    { github   = "https://github.com/bradley-kreider" },
+    { twitter  = "https://twitter.com/placeholder" },
+    { linkedin = "https://linkedin.com/in/placeholder" },
+    { rss      = "/index.xml" },
+  ]

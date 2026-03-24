@@ -1,0 +1,55 @@
+# -- Appearance --
+colorScheme         = "autumn"
+defaultAppearance   = "light"
+autoSwitchAppearance = true
+
+# -- Header --
+[header]
+  layout = "fixed"
+
+# -- Footer --
+[footer]
+  showAppearanceSwitcher = true
+  showScrollToTop        = true
+  showCopyright          = true
+
+# -- Homepage --
+[homepage]
+  layout        = "hero"
+  homepageImage = "img/hero-bg.jpg"
+  showRecent    = true
+  recentLimit   = 5
+  cardView      = false
+  showMoreLink     = true
+  showMoreLinkDest = "/blog/"
+
+# -- Article --
+[article]
+  showDate            = true
+  showDateUpdated     = false
+  showAuthor          = true
+  showReadingTime     = true
+  showWordCount       = false
+  showTableOfContents = true
+  showBreadcrumbs     = false
+  showHero            = true
+  heroStyle           = "thumbAndBackground"
+  showPagination      = true
+  showRelatedContent  = true
+  relatedContentLimit = 3
+  showEdit            = false
+  sharingLinks        = ["twitter", "linkedin", "reddit"]
+
+# -- List --
+[list]
+  showHero        = false
+  groupByYear     = true
+  cardView        = true
+  showBreadcrumbs = false
+  showSummary     = true
+  orderByWeight   = false
+
+# -- Taxonomy --
+[taxonomy]
+  showTermCount = true
+  cardView      = true

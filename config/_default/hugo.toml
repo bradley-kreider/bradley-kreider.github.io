@@ -1,0 +1,38 @@
+theme = "blowfish"
+baseURL = "https://bradley-kreider.github.io/"
+defaultContentLanguage = "en"
+
+enableRobotsTXT = true
+enableEmoji    = true
+summaryLength  = 30
+
+buildDrafts  = false
+buildFuture  = false
+
+[pagination]
+  pagerSize = 10
+
+[imaging]
+  anchor = "Center"
+
+[taxonomies]
+  tag    = "tags"
+  series = "series"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[sitemap]
+  changefreq = "weekly"
+  filename   = "sitemap.xml"
+  priority   = 0.5
+
+[related]
+  threshold = 0
+  toLower   = false
+  [[related.indices]]
+    name   = "tags"
+    weight = 100
+  [[related.indices]]
+    name   = "date"
+    weight = 10
