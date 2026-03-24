@@ -270,3 +270,51 @@ html, body, * {
   margin: 0 !important;
   border-radius: 0 !important;
 }
+
+/* ── Social Links Widget ───────────────────────────────────── */
+.social-section {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem 2rem;
+}
+
+.social-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(var(--color-neutral-200));
+  background: rgb(var(--color-neutral-50));
+  text-decoration: none !important;
+  color: rgb(var(--color-neutral-700)) !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: rgb(var(--color-primary-400));
+  color: rgb(var(--color-primary-500)) !important;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.social-icon svg {
+  width: 100%;
+  height: 100%;
+}
