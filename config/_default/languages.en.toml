@@ -8,13 +8,13 @@ title        = "Brad Kreider"
   isoCode     = "en"
   rtl         = false
   dateFormat  = "January 2, 2006"
-  description = "Brad Kreider — [placeholder]."
+  description = "Brad Kreider."
 
 [params.author]
   name     = "Brad Kreider"
   image    = "img/avatar.jpg"
-  headline = "[placeholder]"
-  bio      = "[placeholder]"
+  headline = "Data and Computer Science Student"
+  bio      = "Messiah University"
   links    = [
     { github   = "https://github.com/bradley-kreider" },
 { linkedin = "https://www.linkedin.com/in/bradleykreider/" },

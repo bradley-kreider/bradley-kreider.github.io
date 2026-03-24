@@ -12,6 +12,7 @@ autoSwitchAppearance = false
   showAppearanceSwitcher = false
   showScrollToTop        = true
   showCopyright          = true
+  showThemeAttribution   = false
 
 # -- Homepage --
 [homepage]

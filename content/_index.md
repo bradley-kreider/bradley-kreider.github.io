@@ -1,6 +1,6 @@
 ---
 title: "Brad Kreider"
-description: "[placeholder]"
+description: "Messiah University"
 ---
 
-[placeholder]
+Messiah University
