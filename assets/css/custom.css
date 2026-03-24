@@ -234,3 +234,39 @@ html, body, * {
 .dark .strava-card--compact .strava-cta {
   border-left-color: rgb(var(--color-neutral-700));
 }
+
+/* ── GitHub Contributions ──────────────────────────────────── */
+.github-section {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem 2rem;
+}
+
+.github-card {
+  display: block;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid rgb(var(--color-neutral-200));
+  background: rgb(var(--color-neutral-50));
+  padding: 1.25rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dark .github-card {
+  border-color: rgb(var(--color-neutral-700));
+  background: rgb(var(--color-neutral-800));
+}
+
+.github-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.github-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
