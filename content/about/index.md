@@ -8,17 +8,16 @@ showAuthor: false
 
 ## Hello
 
-I'm Brad Kreider, a developer based in [Location]. I work primarily with [languages/stack placeholder] and have a strong interest in [interest areas placeholder].
+I'm Brad Kreider, a developer based in the Cumberland Valley. I work primarily with Python, R, and Java and have a strong interest in data science.
 
 Outside of work, you'll find me:
 
 - Standing in a river with a fly rod, trying to convince a trout I know what I'm doing
-- Reading about [interests placeholder]
 - Tinkering with side projects that may or may not ever see the light of day
 
 ## This Site
 
-This is my personal corner of the internet — a place to write about fly fishing, software, and whatever else I'm thinking about. Built with [Hugo](https://gohugo.io/) and the [Blowfish](https://blowfish.page/) theme. Hosted on GitHub Pages.
+This is my personal corner of the internet — a place to write about fly fishing, tech, and whatever else I'm thinking about. Built with [Hugo](https://gohugo.io/) and the [Blowfish](https://blowfish.page/) theme. Hosted on GitHub Pages.
 
 ## Get in Touch
 

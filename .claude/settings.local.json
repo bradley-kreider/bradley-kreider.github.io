@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:merox.dev)",
+      "Bash(hugo version:*)",
+      "Bash(git --version)",
+      "Bash(go version:*)",
+      "WebFetch(domain:blowfish.page)",
+      "WebFetch(domain:github.com)",
+      "Bash(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest)",
+      "Bash(curl -L -o /tmp/hugo.zip \"https://github.com/gohugoio/hugo/releases/download/v0.159.0/hugo_extended_0.159.0_windows-amd64.zip\")",
+      "Bash(cd /tmp)",
+      "Bash(unzip -o hugo.zip hugo.exe -d /tmp/hugo_bin)",
+      "Read(//tmp/**)",
+      "Bash(mkdir -p ~/bin)",
+      "Bash(cp /tmp/hugo_bin/hugo.exe ~/bin/hugo)",
+      "Bash(export PATH=\"$HOME/bin:$PATH\")",
+      "Bash(hugo --minify)",
+      "Bash(ls:*)"
+    ]
+  }
+}
