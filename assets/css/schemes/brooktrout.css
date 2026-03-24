@@ -1,0 +1,38 @@
+:root {
+  /* Neutrals — warm Fenland tan/khaki scale */
+  --color-neutral:     255, 255, 255;
+  --color-neutral-50:  255, 255, 255;
+  --color-neutral-100: 250, 247, 240;
+  --color-neutral-200: 232, 225, 207;
+  --color-neutral-300: 210, 200, 177;
+  --color-neutral-400: 181, 168, 130; /* Fenland SW7544 */
+  --color-neutral-500: 148, 134, 100;
+  --color-neutral-600: 112, 100,  72;
+  --color-neutral-700:  80,  70,  48;
+  --color-neutral-800:  48,  41,  26;
+  --color-neutral-900:  22,  18,  10;
+
+  /* Primary — Obstinate Orange → Roycroft Copper Red scale */
+  --color-primary-50:  255, 248, 242;
+  --color-primary-100: 255, 224, 196;
+  --color-primary-200: 245, 183, 134;
+  --color-primary-300: 228, 140,  80;
+  --color-primary-400: 212,  98,  26; /* Obstinate Orange SW6884 */
+  --color-primary-500: 185,  75,  16;
+  --color-primary-600: 152,  54,  10;
+  --color-primary-700: 122,  46,  16; /* Roycroft Copper Red SW2839 */
+  --color-primary-800:  85,  28,   6;
+  --color-primary-900:  48,  14,   2;
+
+  /* Secondary — Kingdom Gold → Lemon Twist scale */
+  --color-secondary-50:  255, 255, 240;
+  --color-secondary-100: 255, 248, 190;
+  --color-secondary-200: 245, 224, 110;
+  --color-secondary-300: 232, 193,  27; /* Lemon Twist SW6909 */
+  --color-secondary-400: 196, 162,  26; /* Kingdom Gold SW6698 */
+  --color-secondary-500: 160, 130,  18;
+  --color-secondary-600: 122,  98,  12;
+  --color-secondary-700:  88,  70,   8;
+  --color-secondary-800:  54,  42,   4;
+  --color-secondary-900:  24,  18,   2;
+}

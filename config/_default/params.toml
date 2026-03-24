@@ -1,5 +1,5 @@
 # -- Appearance --
-colorScheme         = "autumn"
+colorScheme         = "brooktrout"
 defaultAppearance   = "light"
 autoSwitchAppearance = true
 
@@ -16,7 +16,7 @@ autoSwitchAppearance = true
 # -- Homepage --
 [homepage]
   layout        = "hero"
-  homepageImage = "img/hero-bg.jpg"
+  homepageImage = "img/hero-bg.jpeg"
   showRecent    = true
   recentLimit   = 5
   cardView      = false
