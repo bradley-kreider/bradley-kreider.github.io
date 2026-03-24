@@ -8,14 +8,14 @@ title        = "Brad Kreider"
   isoCode     = "en"
   rtl         = false
   dateFormat  = "January 2, 2006"
-  description = "Brad Kreider — developer, thinker, fly fisherman."
+  description = "Brad Kreider — [placeholder]."
 
 [params.author]
   name     = "Brad Kreider"
   image    = "img/avatar.jpg"
-  headline = "Developer & Outdoorsman"
-  bio      = "I build things with code and find peace on the water. Writing about software, side projects, and fly fishing."
+  headline = "[placeholder]"
+  bio      = "[placeholder]"
   links    = [
     { github   = "https://github.com/bradley-kreider" },
-{ linkedin = "https://linkedin.com/in/placeholder" },
+{ linkedin = "https://www.linkedin.com/in/bradleykreider/" },
   ]
