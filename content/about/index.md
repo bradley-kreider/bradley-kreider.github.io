@@ -42,4 +42,4 @@ Strava
 {{< icon "instagram" >}} Instagram
 {{< /button >}}
 
-Always happy to talk about trout, code, or both.
+Please reach out on LinkedIn if you need anything!
