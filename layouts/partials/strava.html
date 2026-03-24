@@ -5,7 +5,7 @@
     {{ partial "icon.html" "strava" }}
     Latest Activity
   </h2>
-  <a href="https://www.strava.com/activities/{{ $strava.id }}" target="_blank" rel="noopener noreferrer" class="strava-card">
+  <a href="https://www.strava.com/activities/{{ $strava.id }}" target="_blank" rel="noopener noreferrer" class="strava-card{{ if not $strava.photo_url }} strava-card--compact{{ end }}">
     {{ if $strava.photo_url }}
     <div class="strava-photo">
       <img src="{{ $strava.photo_url }}" alt="{{ $strava.name }}" loading="lazy">

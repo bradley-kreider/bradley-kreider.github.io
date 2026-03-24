@@ -199,3 +199,38 @@ html, body, * {
   border-color: rgb(var(--color-neutral-700));
   color: rgb(var(--color-primary-300));
 }
+
+/* Compact layout — no photo */
+.strava-card--compact {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.strava-card--compact .strava-body {
+  flex: 1;
+  padding: 0;
+}
+
+.strava-card--compact .strava-title-row {
+  margin-bottom: 0.4rem;
+}
+
+.strava-card--compact .strava-stats {
+  flex-wrap: nowrap;
+  gap: 0.4rem 1.25rem;
+}
+
+.strava-card--compact .strava-cta {
+  border-top: none;
+  border-left: 1px solid rgb(var(--color-neutral-200));
+  margin-top: 0;
+  padding: 0 0 0 1rem;
+  white-space: nowrap;
+  align-self: center;
+}
+
+.dark .strava-card--compact .strava-cta {
+  border-left-color: rgb(var(--color-neutral-700));
+}
