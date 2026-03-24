@@ -9,19 +9,20 @@ sharingLinks: false
 layout: "about"
 ---
 
-## Hey, I'm Brad
+## About Me
 
-I'm a Data and Computer Science student at Messiah University, based in the Cumberland Valley of Pennsylvania. I work primarily with Python, R, and Java, and I'm drawn to the places where data, code, and real-world problems intersect.
+I'm a Data and Computer Science student at Messiah University in the Cumberland Valley of Pennsylvania. I work primarily with Python, R, and Java, and I am very passionate about data science and visualization. I am currently looking for an internship in the Data / Computer Science Space, feel free to reach out to me on LinkedIn!
 
-When I'm not writing code or crunching data, you'll probably find me:
+Outside of my academic work, you might find me
 
-- Waist-deep in a river with a fly rod, trying to convince a trout I know what I'm doing
-- Running or cycling through the valley (the Strava widget on the homepage keeps me honest)
-- Tinkering with side projects that may or may not ever see the light of day
+- Out on a run training for NCAA DIII Cross Country/Track & Field (See my Strava widget for my activities!)
+- Deep in a river or back on a mountain stream trying to convince a trout I know what I'm doing
+- Driving the state forest roads of PA to access remote campsites
+- Backpacking with friends in beautiful landscapes
 
 ## This Site
 
-This is my personal corner of the internet — a place to write about fly fishing, tech, data, and whatever else I'm thinking about. Built with [Hugo](https://gohugo.io/) and the [Blowfish](https://blowfish.page/) theme, hosted on GitHub Pages.
+This is my personal corner of the internet — a place to write about fly fishing, tech, data, and whatever else piques my interest.
 
 ## Find Me Elsewhere
 
