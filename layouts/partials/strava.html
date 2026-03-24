@@ -21,24 +21,28 @@
         <li>
           <span class="strava-stat-label">Distance</span>
           <span class="strava-stat-value">
-            {{- $km := div $strava.distance 1000.0 -}}
-            {{- printf "%.2f km" $km -}}
+            {{- $miles := div $strava.distance 1609.344 -}}
+            {{- printf "%.2f mi" $miles -}}
           </span>
         </li>
         {{ end }}
         <li>
           <span class="strava-stat-label">Time</span>
           <span class="strava-stat-value">
-            {{- $h := div $strava.moving_time 3600 -}}
-            {{- $m := div (mod $strava.moving_time 3600) 60 -}}
-            {{- $s := mod $strava.moving_time 60 -}}
+            {{- $t := int $strava.moving_time -}}
+            {{- $h := div $t 3600 -}}
+            {{- $m := div (mod $t 3600) 60 -}}
+            {{- $s := mod $t 60 -}}
             {{- if gt $h 0 -}}{{ $h }}h {{ $m }}m{{- else -}}{{ $m }}m {{ $s }}s{{- end -}}
           </span>
         </li>
         {{ if gt $strava.total_elevation_gain 0.0 }}
         <li>
           <span class="strava-stat-label">Elevation</span>
-          <span class="strava-stat-value">{{ printf "%.0f m" $strava.total_elevation_gain }}</span>
+          <span class="strava-stat-value">
+            {{- $ft := mul $strava.total_elevation_gain 3.28084 -}}
+            {{- printf "%.0f ft" $ft -}}
+          </span>
         </li>
         {{ end }}
         <li>
