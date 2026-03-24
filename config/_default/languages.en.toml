@@ -18,5 +18,4 @@ title        = "Brad Kreider"
   links    = [
     { github   = "https://github.com/bradley-kreider" },
 { linkedin = "https://linkedin.com/in/placeholder" },
-    { rss      = "/index.xml" },
   ]
