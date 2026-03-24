@@ -20,7 +20,9 @@
       "WebFetch(domain:dotcolon.net)",
       "Bash(curl -L -o /tmp/aileron.zip \"https://dotcolon.net/files/fonts/aileron_0102.zip\")",
       "Bash(unzip -o /tmp/aileron.zip -d /tmp/aileron)",
-      "WebFetch(domain:developers.strava.com)"
+      "WebFetch(domain:developers.strava.com)",
+      "Bash(node:*)",
+      "Bash(hugo)"
     ]
   }
 }

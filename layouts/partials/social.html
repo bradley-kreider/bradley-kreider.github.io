@@ -1,6 +1,6 @@
 {{ with .Site.Params.Author.links }}
-<section class="social-section not-prose mt-8 mb-4">
-  <h2 class="strava-heading">
+<div class="bento-card bento-social not-prose">
+  <h2 class="bento-heading">
     {{ partial "icon.html" "link" }}
     Connect
   </h2>
@@ -25,5 +25,5 @@
       {{ end }}
     {{ end }}
   </div>
-</section>
+</div>
 {{ end }}

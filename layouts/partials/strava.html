@@ -1,7 +1,7 @@
 {{ $strava := .Site.Data.strava.activity }}
 {{ if $strava.loaded }}
-<section class="strava-section not-prose mt-8 mb-4">
-  <h2 class="strava-heading">
+<div class="bento-card bento-strava not-prose">
+  <h2 class="bento-heading">
     {{ partial "icon.html" "strava" }}
     Latest Activity
   </h2>
@@ -56,5 +56,5 @@
     </div>
     <div class="strava-cta">View on Strava →</div>
   </a>
-</section>
+</div>
 {{ end }}

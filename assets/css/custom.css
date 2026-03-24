@@ -54,19 +54,88 @@ html, body, * {
   font-family: 'Aileron', sans-serif !important;
 }
 
-/* ── Strava Widget ─────────────────────────────────────────── */
-.strava-section {
-  max-width: 42rem;
-  margin-left: auto;
-  margin-right: auto;
+/* ── Bento Grid Layout ───────────────────────────────────── */
+.bento-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  max-width: 72rem;
+  margin: 0 auto;
   padding: 0 1rem 2rem;
 }
 
-.strava-heading {
+/* Tablet+ (580px): two-column layout */
+@media (min-width: 580px) {
+  .bento-grid {
+    grid-template-columns: 3fr 2fr;
+    gap: 1.5rem;
+  }
+
+  .bento-hero     { grid-column: 1 / -1; }
+  .bento-articles { grid-column: 1; grid-row: 2; }
+  .bento-social   { grid-column: 2; grid-row: 2; }
+  .bento-github   { grid-column: 1; grid-row: 3; }
+  .bento-strava   { grid-column: 2; grid-row: 3; }
+}
+
+/* Desktop (768px): polish spacing */
+@media (min-width: 768px) {
+  .bento-grid {
+    gap: 1.75rem;
+    padding: 0 1.5rem 2rem;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .bento-grid {
+    padding: 0 2rem 2rem;
+  }
+}
+
+/* ── Bento Card Base ─────────────────────────────────────── */
+.bento-card {
+  border-radius: 1rem;
+  border: 1px solid rgb(var(--color-neutral-200));
+  background: rgb(var(--color-neutral-50));
+  padding: 1.25rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dark .bento-card {
+  border-color: rgb(var(--color-neutral-700));
+  background: rgb(var(--color-neutral-800));
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Hero card — no border/bg, it has its own background image treatment */
+.bento-hero {
+  border: none;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.bento-hero:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Articles card — let inner content handle its own spacing */
+.bento-articles {
+  overflow: hidden;
+}
+
+/* ── Bento Heading (shared across widgets) ───────────────── */
+.bento-heading {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -74,12 +143,17 @@ html, body, * {
   margin-bottom: 0.75rem;
 }
 
-.strava-heading svg {
+.bento-heading svg {
   width: 1.2rem;
   height: 1.2rem;
-  color: #FC4C02; /* Strava orange — brand color, intentional */
 }
 
+/* Strava heading icon keeps its brand color */
+.bento-strava .bento-heading svg {
+  color: #FC4C02;
+}
+
+/* ── Strava Widget ─────────────────────────────────────────── */
 .strava-card {
   display: block;
   border-radius: 0.75rem;
@@ -236,13 +310,6 @@ html, body, * {
 }
 
 /* ── GitHub Contributions ──────────────────────────────────── */
-.github-section {
-  max-width: 42rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem 2rem;
-}
-
 .github-card {
   display: block;
   border-radius: 0.75rem;
@@ -272,13 +339,6 @@ html, body, * {
 }
 
 /* ── Social Links Widget ───────────────────────────────────── */
-.social-section {
-  max-width: 42rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem 2rem;
-}
-
 .social-card {
   display: flex;
   flex-wrap: wrap;
