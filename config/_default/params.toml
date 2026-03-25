@@ -28,7 +28,7 @@ autoSwitchAppearance = false
 [article]
   showDate            = true
   showDateUpdated     = false
-  showAuthor          = true
+  showAuthor          = false
   showReadingTime     = true
   showWordCount       = false
   showTableOfContents = true
@@ -39,7 +39,7 @@ autoSwitchAppearance = false
   showRelatedContent  = true
   relatedContentLimit = 3
   showEdit            = false
-  sharingLinks        = ["linkedin"]
+  sharingLinks        = []
 
 # -- List --
 [list]
