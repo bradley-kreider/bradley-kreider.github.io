@@ -26,6 +26,8 @@ This is my personal corner of the internet — a place to write about fly fishin
 
 ## Find Me Elsewhere
 
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:0.75rem;">
+
 {{< button href="https://github.com/bradley-kreider" target="_blank" >}}
 {{< icon "github" >}} GitHub
 {{< /button >}}
@@ -41,5 +43,7 @@ Strava
 {{< button href="https://www.instagram.com/brad_kreider/" target="_blank" >}}
 {{< icon "instagram" >}} Instagram
 {{< /button >}}
+
+</div>
 
 Please reach out on LinkedIn if you need anything!
