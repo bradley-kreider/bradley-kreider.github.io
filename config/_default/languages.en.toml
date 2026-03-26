@@ -17,4 +17,5 @@ title        = "Brad Kreider"
   bio      = "Messiah University"
   links    = [
     { github   = "https://github.com/bradley-kreider" },
+    { linkedin = "https://www.linkedin.com/in/bradleykreider/" },
   ]
