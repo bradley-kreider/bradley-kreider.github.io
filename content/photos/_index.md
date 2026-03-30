@@ -1,5 +1,5 @@
 ---
 title: "Photos"
-description: "A collection of photos from across the blog."
+description: "Photos Featured on the Blog"
 layout: "photos"
 ---

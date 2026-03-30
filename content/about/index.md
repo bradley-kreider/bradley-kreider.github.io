@@ -38,7 +38,7 @@ This is my personal corner of the internet — a place to write about fly fishin
 {{< /button >}}
 
 {{< button href="https://www.strava.com/athletes/bradley-kreider" target="_blank" >}}
-Strava
+{{< icon "strava" >}} Strava
 {{< /button >}}
 
 {{< button href="https://www.instagram.com/brad_kreider/" target="_blank" >}}
