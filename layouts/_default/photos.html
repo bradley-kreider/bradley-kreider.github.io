@@ -1,0 +1,54 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "single" }}
+
+  <article>
+    <header class="mt-5 max-w-prose mb-8">
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        {{ .Title | emojify }}
+      </h1>
+      {{ if .Description }}
+        <p class="mt-2 text-base text-neutral-500 dark:text-neutral-400">{{ .Description }}</p>
+      {{ end }}
+    </header>
+
+    {{/* Collect all images from blog post page bundles */}}
+    {{ $blogSection := site.GetPage "blog" }}
+    {{ $allPhotos := slice }}
+
+    {{ if $blogSection }}
+      {{ range $blogSection.Pages }}
+        {{ $post := . }}
+        {{ range $post.Resources.ByType "image" }}
+          {{ $allPhotos = $allPhotos | append (dict "image" . "post" $post) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{ if gt (len $allPhotos) 0 }}
+      <div class="photo-gallery">
+        {{ range $allPhotos }}
+          {{ $img := .image }}
+          {{ $post := .post }}
+          {{ $thumb := $img.Resize "600x webp" }}
+          <a href="{{ $post.RelPermalink }}" class="photo-gallery-item" title="{{ $post.Title }}">
+            <img
+              src="{{ $thumb.RelPermalink }}"
+              alt="{{ $img.Title | default $post.Title }}"
+              loading="lazy"
+              class="photo-gallery-img"
+            >
+            <div class="photo-gallery-overlay">
+              <span>{{ $post.Title }}</span>
+            </div>
+          </a>
+        {{ end }}
+      </div>
+    {{ else }}
+      <section class="mt-10 prose dark:prose-invert">
+        <p class="py-8 border-t">
+          <em>No photos yet — check back after some blog posts are published!</em>
+        </p>
+      </section>
+    {{ end }}
+  </article>
+{{ end }}

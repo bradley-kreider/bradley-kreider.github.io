@@ -7,4 +7,3 @@ weight: 1
 
 I'm in the process of documenting my current and past projects. This section will include technical write-ups, links to source code, and lessons learned.
 
-Stay tuned.
