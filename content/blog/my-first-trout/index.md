@@ -1,6 +1,6 @@
 ---
    title: "My First Trout"
-   date: 2026-03-25
+   date: 2026-04-05
    description: "My first time catching a brook trout"
    summary: "A Fly Fishing Trip to the Mountains of Northern Pennsylvania"
    tags: ["fly-fishing"]
