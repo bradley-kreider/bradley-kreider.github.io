@@ -1,0 +1,27 @@
+{{/* Latest Post — compact single-article widget */}}
+{{ $posts := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+{{ $latest := index $posts 0 }}
+{{ with $latest }}
+<div class="bento-card bento-latest-post">
+  <p class="bento-heading">
+    {{ partial "icon.html" "pencil" }}
+    Latest Post
+  </p>
+  <a href="{{ .RelPermalink }}" class="latest-post-link not-prose block group">
+    <h3 class="latest-post-title">{{ .Title | emojify }}</h3>
+    {{ if .Summary }}
+      <p class="latest-post-summary">{{ .Summary | plainify | truncate 120 }}</p>
+    {{ end }}
+    <div class="latest-post-meta">
+      {{ .Date.Format "January 2, 2006" }}
+      {{ if .ReadingTime }}
+        <span class="latest-post-dot">&middot;</span>
+        {{ .ReadingTime }} min read
+      {{ end }}
+    </div>
+  </a>
+  <a href="{{ (.Site.Params.homepage.showMoreLinkDest | default "/blog/") | relURL }}" class="latest-post-more">
+    Explore all posts &rarr;
+  </a>
+</div>
+{{ end }}

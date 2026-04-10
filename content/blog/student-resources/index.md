@@ -1,8 +1,8 @@
 ---
    title: "Free Student Tools: AI, Development, Computer Science"
    date: 2026-04-09
-   description: "placeholder"
-   summary: "placeholder"
+   description: "A curated list of free and discounted AI, development, and cloud tools available to CS, data science, and STEM students — including the GitHub Student Developer Pack, Claude for Education, Cursor Pro, and more."
+   summary: "A practical roundup of the best free and discounted tools for students in CS, data science, and STEM — covering AI assistants, IDEs, cloud credits, and developer platforms worth taking advantage of."
    tags: ["AI", "Development"]
    showHero: false
    heroStyle: "thumbAndBackground"
