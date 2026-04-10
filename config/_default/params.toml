@@ -3,6 +3,9 @@ colorScheme         = "brooktrout"
 defaultAppearance   = "light"
 autoSwitchAppearance = false
 
+Logo                = "img/logo.png"
+disableTextInHeader = true
+
 # -- Header --
 [header]
   layout = "fixed"
@@ -31,7 +34,7 @@ autoSwitchAppearance = false
   showAuthor          = false
   showReadingTime     = true
   showWordCount       = false
-  showTableOfContents = true
+  showTableOfContents = false
   showBreadcrumbs     = false
   showHero            = true
   heroStyle           = "thumbAndBackground"

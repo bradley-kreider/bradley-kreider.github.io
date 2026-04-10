@@ -7,7 +7,7 @@
    showHero: false
    heroStyle: "thumbAndBackground"
    showReadingTime: true
-   showTableOfContents: true
+   showTableOfContents: false
    draft: false
 ---
 

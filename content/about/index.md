@@ -6,7 +6,7 @@ showDate: false
 showAuthor: false
 showHero: false
 sharingLinks: false
-showTableOfContents: true
+showTableOfContents: false
 layout: "about"
 ---
 

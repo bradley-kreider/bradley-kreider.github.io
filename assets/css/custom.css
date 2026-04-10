@@ -49,6 +49,14 @@
   font-display: swap;
 }
 
+/* Header logo size */
+img.logo {
+  width: 32px !important;
+  height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+}
+
 /* Apply Aileron across the entire site */
 html, body, * {
   font-family: 'Aileron', sans-serif !important;
@@ -456,6 +464,15 @@ html, body, * {
 /* TOC links turn orange on hover */
 #TableOfContents a:hover {
   color: rgb(var(--color-primary-400)) !important;
+}
+
+/* Center single article content on the page */
+#single_header,
+#main-content > article > section,
+#main-content > article > footer {
+  max-width: 80ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ── Photo Gallery (Pinterest-style masonry) ─────────────── */

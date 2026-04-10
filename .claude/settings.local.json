@@ -24,7 +24,8 @@
       "Bash(node:*)",
       "Bash(hugo)",
       "Bash(find 'C:\\\\dev\\\\portfolio website\\\\themes\\\\blowfish\\\\layouts' -type f -name *nav* -o -name *menu*)",
-      "Bash(hugo --destination public_test)"
+      "Bash(hugo --destination public_test)",
+      "Bash(identify \"C:/dev/portfolio website/assets/img/logo.png\")"
     ]
   }
 }

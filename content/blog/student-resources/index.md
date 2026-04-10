@@ -7,7 +7,7 @@
    showHero: false
    heroStyle: "thumbAndBackground"
    showReadingTime: true
-   showTableOfContents: true
+   showTableOfContents: false
    draft: false
 ---
 
@@ -61,7 +61,7 @@ GitHub Copilot is a powerful AI coding assistant that integrates nicely with pop
  
  
  
-## Frontier LLM access
+## AI/LLM
  
 **Claude for Education / Claude Campus Program**
 
