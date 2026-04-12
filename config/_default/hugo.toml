@@ -1,5 +1,5 @@
 theme = "blowfish"
-baseURL = "https://bradley-kreider.github.io/"
+baseURL = "https://kreider.dev/"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
