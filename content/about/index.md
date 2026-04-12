@@ -34,12 +34,8 @@ Outside of my academic work, you might find me
 {{< icon "linkedin" >}} LinkedIn
 {{< /button >}}
 
-{{< button href="https://www.strava.com/athletes/bradley-kreider" target="_blank" >}}
+{{< button href="https://www.strava.com/athletes/53489820" target="_blank" >}}
 {{< icon "strava" >}} Strava
-{{< /button >}}
-
-{{< button href="https://www.instagram.com/brad_kreider/" target="_blank" >}}
-{{< icon "instagram" >}} Instagram
 {{< /button >}}
 
 </div>
