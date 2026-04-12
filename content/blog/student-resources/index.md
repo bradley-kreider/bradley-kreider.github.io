@@ -1,5 +1,5 @@
 ---
-   title: "Free Student Tools: AI, Development, Computer Science"
+   title: "Free Student Tools: AI, Development, CS"
    date: 2026-04-09
    description: "A curated list of free and discounted AI, development, and cloud tools available to CS, data science, and STEM students — including the GitHub Student Developer Pack, Claude for Education, Cursor Pro, and more."
    summary: "A practical roundup of the best free and discounted tools for students in CS, data science, and STEM — covering AI assistants, IDEs, cloud credits, and developer platforms worth taking advantage of."
@@ -41,6 +41,8 @@ If I were in a time crunch, this is the package that I would chase down: **[GitH
 In my experience, there is a lot of value in this package, most of it I have not gotten the chance to personally explore just yet.
 
 The application can be somewhat annoying. My initial submission was actually rejected because I was missing some of the correct credentials on my GitHub account. Thankfully, the instructions made it easy enough to identify what was missing and make the corrections. At the time of this writing, my application has been accepted and I am awaiting the full extent of my offerings. 
+
+Included in this offer is a free domain through **[Name.com](https://name.com)**. I was able to take advantage of this offer to claim a customer domain for this site!
 
 
 
