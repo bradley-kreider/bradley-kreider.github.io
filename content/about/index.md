@@ -21,9 +21,6 @@ Outside of my academic work, you might find me
 - Driving the state forest roads of PA to access remote campsites
 - Backpacking with friends in beautiful landscapes
 
-## This Site
-
-This is my personal corner of the internet — a place to write about fly fishing, tech, data, and whatever else piques my interest.
 
 ## Find Me Elsewhere
 
