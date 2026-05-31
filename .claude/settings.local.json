@@ -29,7 +29,10 @@
       "Bash(~/bin/hugo --minify)",
       "Bash(start *)",
       "Bash(hugo --gc --minify)",
-      "Bash(hugo server *)"
+      "Bash(hugo server *)",
+      "Bash(curl -s \"http://localhost:1313/projects/\")",
+      "Bash(curl -s \"http://localhost:1313/blog/student-resources/\")",
+      "Bash(hugo --gc)"
     ]
   }
 }

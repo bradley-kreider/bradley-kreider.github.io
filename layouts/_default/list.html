@@ -1,0 +1,40 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "list" }}
+  <div class="k-page not-prose">
+    <div style="padding: var(--gap-4) 0 var(--gap-6);">
+      <div class="k-section-head" style="padding-bottom: var(--gap-3); border-bottom: 1px solid var(--line-soft); margin-bottom: var(--gap-4);">
+        <h1 style="font-size:var(--fs-sm);font-weight:600;letter-spacing:0.04em;text-transform:lowercase;color:var(--fg-muted);margin:0;">
+          <span class="k-sigil" style="color:var(--accent);margin-right:8px;">##</span>{{ .Title | lower }}
+        </h1>
+        {{ if .Pages }}<span style="font-size:var(--fs-xs);color:var(--fg-faint);">{{ len .Pages }} entries</span>{{ end }}
+      </div>
+
+      {{ if .Content }}
+        <div class="prose dark:prose-invert" style="color:var(--fg);max-width:72ch;margin-bottom:var(--gap-4);">
+          {{ .Content }}
+        </div>
+      {{ end }}
+
+      {{ if gt (len .Pages) 0 }}
+        <div class="k-projects">
+          {{ $i := 0 }}
+          {{ range .Pages }}
+            {{ $i = add $i 1 }}
+            <a class="k-project" href="{{ .RelPermalink }}">
+              <span class="k-idx">{{ printf "%02d" $i }}</span>
+              <span class="k-title">{{ .Title | emojify }}<span class="k-arrow">→</span></span>
+              <span class="k-desc">{{ .Summary | plainify | truncate 120 }}</span>
+              <span class="k-stack">
+                {{ range .Params.tags }}<span>{{ . }}</span>{{ end }}
+              </span>
+            </a>
+          {{ end }}
+        </div>
+      {{ else }}
+        <p style="color:var(--fg-faint);padding:var(--gap-4) 0;">nothing here yet</p>
+      {{ end }}
+
+      {{ partial "pagination.html" . }}
+    </div>
+  </div>
+{{ end }}
