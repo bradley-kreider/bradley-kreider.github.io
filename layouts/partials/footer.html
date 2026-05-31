@@ -1,0 +1,35 @@
+{{/* Terminal footer — replaces Blowfish footer */}}
+<footer class="k-footer not-prose">
+  <div>
+    <div class="k-footer-prompt">
+      <span class="k-p">~/</span>{{ .Site.Params.Author.name | default .Site.Title | lower | replaceRE " " "" }} $ <span class="k-footer-cursor"></span>
+    </div>
+  </div>
+  <div class="k-footer-links">
+    {{ with .Site.Params.Author.links }}
+      {{ range $links := . }}
+        {{ range $name, $url := $links }}
+          {{ if not (eq $name "email") }}
+            <a href="{{ $url | safeURL }}" target="_blank" rel="me noopener noreferrer">{{ $name | lower }}</a>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ with .Site.Params.stravaUrl }}
+      <a href="{{ . | safeURL }}" target="_blank" rel="noopener noreferrer">strava</a>
+    {{ end }}
+    {{ with .Site.Params.Author.links }}
+      {{ range $links := . }}
+        {{ range $name, $url := $links }}
+          {{ if eq $name "email" }}
+            <a href="{{ $url | safeURL }}">email</a>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+  <div class="k-copy">
+    &copy; {{ now.Format "2006" }} {{ .Site.Params.Author.name }}<br>
+    built with hugo &middot; hosted on github pages
+  </div>
+</footer>

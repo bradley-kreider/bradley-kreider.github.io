@@ -1,117 +1,178 @@
-{{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
-{{ $disableHeroImageFilter := .Site.Params.homepage.disableHeroImageFilter | default false }}
-<div class="bento-grid">
+{{/* Terminal homepage — hero, projects, latest post, activity */}}
+{{ $posts    := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+{{ $latest   := index $posts 0 }}
+{{ $strava   := .Site.Data.strava.activity }}
 
-  {{/* ── Row 1: Hero (full width) ── */}}
-  <article class="bento-card bento-hero max-w-full prose dark:prose-invert">
-    <div class="relative">
-      <div class="absolute inset-x-0 bottom-0 h-1/2"></div>
-      <div class="mx-auto max-w-7xl p-0">
-        <div class="relative shadow-xl sm:overflow-hidden rounded-2xl">
-          <div class="absolute inset-0">
-            {{ $useDefault := true }}
-            {{ $homepageImage := "" }}
-            {{ with .Site.Params.defaultBackgroundImage }}
-              {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
-                {{ $homepageImage = resources.GetRemote . }}
-              {{ else }}
-                {{ $homepageImage = resources.Get . }}
-              {{ end }}
-            {{ end }}
-            {{ with .Site.Params.homepage.homepageImage }}
-              {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
-                {{ $homepageImage = resources.GetRemote . }}
-                {{ $useDefault = false }}
-              {{ else }}
-                {{ $homepageImage = resources.Get . }}
-                {{ $useDefault = false }}
-              {{ end }}
-            {{ end }}
-            {{ if $homepageImage }}
-              {{ $style := "" }}
-              {{ $defaultPosition := cond $useDefault site.Params.imagePosition false }}
-              {{ with $.Params.imagePosition | default $defaultPosition }}
-                {{ $style = printf "object-position: %s;" . }}
-              {{ end }}
-              <img
-                class="h-full w-full object-cover nozoom mt-0 mr-0 mb-0 ml-0"
-                src="{{ $homepageImage.RelPermalink }}"
-                {{ if $style }}style="{{ $style | safeCSS }}"{{ end }}>
-              {{ if not $disableHeroImageFilter }}
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-600 dark:from-primary-600 dark:to-secondary-800 mix-blend-multiply"></div>
-              {{ else }}
-                <div
-                  class="absolute inset-0 from-primary-500 to-secondary-600 dark:from-primary-600 dark:to-secondary-800 mix-blend-multiply"></div>
-              {{ end }}
-            {{ end }}
+<div class="k-page not-prose">
+
+  {{/* ── Hero ── */}}
+  <section class="k-hero">
+    <div>
+      <div class="k-hero-meta">
+        <div class="k-row"><span class="k-k">// node:</span> <span class="k-v">kreider.dev</span></div>
+        <div class="k-row"><span class="k-k">// built:</span> <span class="k-v">{{ now.Format "Jan 2, 2006" | lower }}</span></div>
+        <div class="k-row"><span class="k-k">// status:</span> <span class="k-v">online &middot; open to internships</span></div>
+      </div>
+
+      <h1>
+        <span>{{ .Site.Params.Author.name | default .Site.Title }}</span><span class="k-slash">/</span><br>
+        <span class="k-dim">{{ .Site.Params.Author.headline | default "Data + Computer Science" }}</span>
+      </h1>
+
+      <p class="k-hero-sub">
+        {{ .Content | plainify | truncate 200 }}
+      </p>
+
+      <div class="k-hero-tags">
+        <span class="k-tag"><span class="k-dot"></span>Python</span>
+        <span class="k-tag"><span class="k-dot"></span>SQL</span>
+        <span class="k-tag"><span class="k-dot"></span>React</span>
+        <span class="k-tag"><span class="k-dot"></span>Go</span>
+        <span class="k-tag"><span class="k-dot"></span>Pandas</span>
+        <span class="k-tag"><span class="k-dot"></span>Postgres</span>
+      </div>
+    </div>
+
+    <aside class="k-hero-aside">
+      {{ $authorImage := "" }}
+      {{ with .Site.Params.Author.image }}
+        {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+          {{ $authorImage = resources.GetRemote . }}
+        {{ else }}
+          {{ $authorImage = resources.Get . }}
+        {{ end }}
+      {{ end }}
+      <div class="k-avatar">
+        {{ if $authorImage }}
+          <img src="{{ $authorImage.RelPermalink }}" alt="{{ $.Site.Params.Author.name | default `Author` }}">
+        {{ else }}
+          <div class="k-avatar-placeholder"></div>
+          <span class="k-avatar-corner">avatar.jpg</span>
+        {{ end }}
+      </div>
+
+      <div class="k-status-card">
+        <div class="k-status-heading">
+          <span>now</span>
+          <span class="k-pulse" aria-hidden="true"></span>
+        </div>
+        <div class="k-status-row"><span class="k-k">studying</span><span>databases</span></div>
+        <div class="k-status-row"><span class="k-k">reading</span><span>DDIA</span></div>
+        <div class="k-status-row"><span class="k-k">building</span><span>strava cli</span></div>
+        <div class="k-status-row"><span class="k-k">listening</span><span>khruangbin</span></div>
+      </div>
+    </aside>
+  </section>
+
+  {{/* ── Latest Post ── */}}
+  {{ with $latest }}
+  <section class="k-section">
+    <div class="k-section-head">
+      <h2 class="k-section-title"><span class="k-sigil">##</span>latest post</h2>
+      <span class="k-section-meta"><a href="{{ ($.Site.Params.homepage.showMoreLinkDest | default "/blog/") | relURL }}">/blog →</a></span>
+    </div>
+    <article class="k-post">
+      <div>
+        {{ with .Params.tags }}
+          <div class="k-kicker">{{ index . 0 }} &middot; pinned</div>
+        {{ else }}
+          <div class="k-kicker">post</div>
+        {{ end }}
+        <h3><a href="{{ .RelPermalink }}">{{ .Title | emojify }}</a></h3>
+        {{ if .Summary }}
+          <p class="k-excerpt">{{ .Summary | plainify | truncate 200 }}</p>
+        {{ end }}
+      </div>
+      <div class="k-meta">
+        <span>{{ .Date.Format "Jan 2, 2006" | lower }}</span>
+        {{ if .ReadingTime }}<span>{{ .ReadingTime }} min read</span>{{ end }}
+        <a class="k-read" href="{{ .RelPermalink }}">read →</a>
+      </div>
+    </article>
+  </section>
+  {{ end }}
+
+  {{/* ── Activity ── */}}
+  <section class="k-section">
+    <div class="k-section-head">
+      <h2 class="k-section-title"><span class="k-sigil">##</span>activity</h2>
+      <span class="k-section-meta">live feeds</span>
+    </div>
+    <div class="k-activity">
+
+      {{/* Strava card */}}
+      {{ if $strava.loaded }}
+      <a href="https://www.strava.com/activities/{{ $strava.id }}" target="_blank" rel="noopener noreferrer" class="k-card k-strava">
+        <div class="k-card-heading">
+          <span>strava &middot; latest {{ $strava.sport_type | lower | default "ride" }}</span>
+          <span>view →</span>
+        </div>
+        <div class="k-ride-title">{{ $strava.name }}</div>
+
+        <div class="k-route-art" aria-hidden="true">
+          <svg viewBox="0 0 600 64" preserveAspectRatio="none">
+            <path d="M0,40 C 30,38 45,18 80,22 S 130,52 170,40 220,8 260,18 320,46 360,38 420,14 460,26 520,52 560,40 590,28 600,32" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <path d="M0,40 C 30,38 45,18 80,22 S 130,52 170,40 220,8 260,18 320,46 360,38 420,14 460,26 520,52 560,40 590,28 600,32" fill="none" stroke="var(--accent)" stroke-width="6" opacity="0.18"/>
+          </svg>
+        </div>
+
+        <div class="k-stats">
+          {{ if gt $strava.distance 0.0 }}
+          <div class="k-stat">
+            <div class="k-v">{{ printf "%.2f" (div $strava.distance 1609.344) }}<span class="k-unit">mi</span></div>
+            <div class="k-k">distance</div>
           </div>
-          <div
-            class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8 flex flex-col items-center justify-center text-center">
-            {{ with .Site.Params.Author.image }}
-              {{ $authorImage := "" }}
-              {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
-                {{ $authorImage = resources.GetRemote . }}
-              {{ else }}
-                {{ $authorImage = resources.Get . }}
-              {{ end }}
-              {{ if $authorImage }}
-                {{ $final := $authorImage }}
-                {{ $squareImage := $authorImage }}
-                {{ if not (or $disableImageOptimization (eq $authorImage.MediaType.SubType "svg")) }}
-                  {{ $final = $authorImage.Fill (print "288x288 q" ( $.Site.Params.Author.imagequality | default "96" )) }}
-                  {{ $shortSide := int (math.Min $authorImage.Width $authorImage.Height) }}
-                  {{ $squareImage = $authorImage.Crop (printf "%dx%d" $shortSide $shortSide ) }}
-                {{ end }}
-                <img
-                  class="mb-2 h-36 w-36 rounded-full"
-                  width="144"
-                  height="144"
-                  alt="{{ $.Site.Params.Author.name | default `Author` }}"
-                  src="{{ $final.RelPermalink }}"
-                  data-zoom-src="{{ $squareImage.RelPermalink }}">
-              {{ end }}
-            {{ end }}
-            {{ if not $disableHeroImageFilter }}
-              <h1 class="mb-2 text-4xl font-extrabold text-neutral-200">
-                {{ .Site.Params.Author.name | default .Site.Title }}
-              </h1>
-              {{ with .Site.Params.Author.headline }}
-                <h2 class="mt-0 mb-0 text-xl text-neutral-300">
-                  {{ . | markdownify }}
-                </h2>
-              {{ end }}
-            {{ else }}
-              <h1 class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200">
-                {{ .Site.Params.Author.name | default .Site.Title }}
-              </h1>
-              {{ with .Site.Params.Author.headline }}
-                <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
-                  {{ . | markdownify }}
-                </h2>
-              {{ end }}
-            {{ end }}
-            {{ if not $disableHeroImageFilter }}
-              <section class="prose prose-invert w-full">{{ .Content }}</section>
-            {{ else }}
-              <section class="prose dark:prose-invert w-full">{{ .Content }}</section>
-            {{ end }}
+          {{ end }}
+          <div class="k-stat">
+            {{ $t := int $strava.moving_time }}
+            {{ $h := div $t 3600 }}
+            {{ $m := div (mod $t 3600) 60 }}
+            {{ $s := mod $t 60 }}
+            <div class="k-v">
+              {{ if gt $h 0 }}{{ $h }}:{{ printf "%02d" $m }}<span class="k-unit">h</span>{{ else }}{{ $m }}:{{ printf "%02d" $s }}<span class="k-unit">m</span>{{ end }}
+            </div>
+            <div class="k-k">moving time</div>
+          </div>
+          {{ if gt $strava.total_elevation_gain 0.0 }}
+          <div class="k-stat">
+            <div class="k-v">{{ printf "%.0f" (mul $strava.total_elevation_gain 3.28084) }}<span class="k-unit">ft</span></div>
+            <div class="k-k">elevation</div>
+          </div>
+          {{ end }}
+          <div class="k-stat">
+            {{ $date := $strava.start_date_local | time }}
+            <div class="k-v">{{ $date.Format "Jan 2" | lower }}<span class="k-unit">'{{ $date.Format "06" }}</span></div>
+            <div class="k-k">date</div>
+          </div>
+        </div>
+      </a>
+      {{ else }}
+      <div class="k-card k-strava">
+        <div class="k-card-heading"><span>strava &middot; latest ride</span></div>
+        <div class="k-ride-title" style="color:var(--fg-faint)">no recent activity</div>
+      </div>
+      {{ end }}
+
+      {{/* GitHub card */}}
+      <div class="k-card k-gh-card">
+        <div class="k-card-heading">
+          <span>github &middot; contributions</span>
+          <a href="https://github.com/bradley-kreider" target="_blank" rel="noopener noreferrer">@bradley-kreider →</a>
+        </div>
+        <div class="k-chart">
+          <img
+            src="https://ghchart.rshah.org/D4621A/bradley-kreider"
+            alt="GitHub contribution chart for bradley-kreider"
+            loading="lazy">
+          <div class="k-gh-legend">
+            <span>less</span>
+            <span class="k-gh-scale" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            <span>more</span>
           </div>
         </div>
       </div>
+
     </div>
-  </article>
-
-  {{/* ── Row 2 left: Latest Post ── */}}
-  {{ partial "latest-post.html" . }}
-
-  {{/* ── Row 2 right: Social + GitHub stacked ── */}}
-  <div class="bento-sidebar">
-    {{ partial "social.html" . }}
-    {{ partial "github.html" . }}
-  </div>
+  </section>
 
 </div>
-
-{{/* ── Strava: full-width below grid ── */}}
-{{ partial "strava.html" . }}
