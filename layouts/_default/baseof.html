@@ -1,0 +1,42 @@
+<!doctype html>
+<html
+  lang="{{ with site.Params.isoCode | default (site.LanguageCode | default `en`) }}{{- . -}}{{ end }}"
+  dir="{{ cond (site.Params.rtl | default false) `rtl` `ltr` }}"
+  data-default-appearance="{{ site.Params.defaultAppearance | default `light` }}"
+  data-auto-appearance="{{ site.Params.autoSwitchAppearance | default `true` }}">
+  {{- partial "head.html" . -}}
+  {{- partialCached "init.html" . -}}
+
+  <body>
+    {{/* Terminal nav */}}
+    {{ $header := print "header/" site.Params.header.layout ".html" }}
+    {{ if templates.Exists ( printf "partials/%s" $header ) }}
+      {{ partial $header . }}
+    {{ else }}
+      {{ partial "header/basic.html" . }}
+    {{ end }}
+
+    <main id="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+
+    {{ if site.Params.enableSearch | default false }}
+      {{- partial "search.html" . -}}
+    {{ end }}
+  </body>
+  {{ if site.Params.buymeacoffee.globalWidget | default false }}
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="{{ site.Params.buymeacoffee.identifier }}"
+      data-description="Support me on Buy me a coffee!"
+      {{ with site.Params.buymeacoffee.globalWidgetMessage }}data-message="{{ . }}"{{ end }}
+      {{ with site.Params.buymeacoffee.globalWidgetColor | default `#FFDD00` }}data-color="{{ . }}"{{ end }}
+      {{ with site.Params.buymeacoffee.globalWidgetPosition }}data-position="{{ . }}"{{ end }}
+      data-x_margin="18"
+      data-y_margin="18"></script>
+  {{ end }}
+</html>

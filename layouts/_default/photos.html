@@ -1,20 +1,15 @@
 {{ define "main" }}
-  {{ .Scratch.Set "scope" "single" }}
-
-  <article>
-    <header class="mt-5 max-w-prose mb-8">
-      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        {{ .Title | emojify }}
+<div class="k-page not-prose">
+  <div style="padding: var(--gap-4) 0 var(--gap-6);">
+    <div class="k-section-head" style="padding-bottom: var(--gap-3); border-bottom: 1px solid var(--line-soft); margin-bottom: var(--gap-4);">
+      <h1 style="font-size:var(--fs-sm);font-weight:600;letter-spacing:0.04em;text-transform:lowercase;color:var(--fg-muted);margin:0;">
+        <span class="k-sigil" style="color:var(--accent);margin-right:8px;">##</span>photos
       </h1>
-      {{ if .Description }}
-        <p class="mt-2 text-base text-neutral-500 dark:text-neutral-400">{{ .Description }}</p>
-      {{ end }}
-    </header>
+    </div>
 
     {{/* Collect all images from blog post page bundles */}}
     {{ $blogSection := site.GetPage "blog" }}
     {{ $allPhotos := slice }}
-
     {{ if $blogSection }}
       {{ range $blogSection.Pages }}
         {{ $post := . }}
@@ -25,30 +20,20 @@
     {{ end }}
 
     {{ if gt (len $allPhotos) 0 }}
-      <div class="photo-gallery">
-        {{ range $allPhotos }}
-          {{ $img := .image }}
-          {{ $post := .post }}
+      <div class="k-photos">
+        {{ range $i, $p := $allPhotos }}
+          {{ $img := $p.image }}
+          {{ $post := $p.post }}
           {{ $thumb := $img.Resize "600x webp" }}
-          <a href="{{ $post.RelPermalink }}" class="photo-gallery-item" title="{{ $post.Title }}">
-            <img
-              src="{{ $thumb.RelPermalink }}"
-              alt="{{ $img.Title | default $post.Title }}"
-              loading="lazy"
-              class="photo-gallery-img"
-            >
-            <div class="photo-gallery-overlay">
-              <span>{{ $post.Title }}</span>
-            </div>
+          <a class="k-photo" href="{{ $post.RelPermalink }}" title="{{ $post.Title }}">
+            <img src="{{ $thumb.RelPermalink }}" alt="{{ $img.Title | default $post.Title }}" loading="lazy">
+            <span class="k-photo-caption">{{ $post.Title | truncate 20 }}</span>
           </a>
         {{ end }}
       </div>
     {{ else }}
-      <section class="mt-10 prose dark:prose-invert">
-        <p class="py-8 border-t">
-          <em>No photos yet — check back after some blog posts are published!</em>
-        </p>
-      </section>
+      <p style="color:var(--fg-faint);padding:var(--gap-4) 0;">no photos yet</p>
     {{ end }}
-  </article>
+  </div>
+</div>
 {{ end }}

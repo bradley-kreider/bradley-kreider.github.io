@@ -1,0 +1,38 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "single" }}
+  <div class="k-page not-prose">
+    <div style="padding: var(--gap-4) 0 var(--gap-6);">
+      <article>
+        {{/* Hero image */}}
+        {{ if .Params.showHero | default (site.Params.article.showHero | default false) }}
+          {{ $heroStyle := .Params.heroStyle }}
+          {{ if not $heroStyle }}{{ $heroStyle = site.Params.article.heroStyle }}{{ end }}
+          {{ $heroStyle := print "hero/" $heroStyle ".html" }}
+          {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
+            {{ partial $heroStyle . }}
+          {{ else }}
+            {{ partial "hero/basic.html" . }}
+          {{ end }}
+        {{ end }}
+
+        <header class="k-article-block">
+          <h1 class="k-article-title">{{ .Title | emojify }}</h1>
+          <div class="k-article-meta">
+            {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
+          </div>
+        </header>
+
+        <section class="k-article-block">
+          <div class="k-article-body prose dark:prose-invert">
+            {{ .Content }}
+          </div>
+          {{ partial "related.html" . }}
+        </section>
+
+        <footer class="k-article-block" style="padding-top:var(--gap-4);">
+          {{ partial "article-pagination.html" . }}
+        </footer>
+      </article>
+    </div>
+  </div>
+{{ end }}

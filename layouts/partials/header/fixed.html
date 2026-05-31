@@ -1,0 +1,14 @@
+{{/* Terminal nav — replaces Blowfish fixed header */}}
+<div class="k-page">
+  <nav class="k-nav not-prose">
+    <a class="k-brand bare" href="/">
+      <span class="k-prompt">~/</span><span class="k-host">{{ .Site.Params.Author.name | default .Site.Title }}</span><span class="k-cursor"></span>
+    </a>
+    <div class="k-nav-links">
+      {{ $currentPage := . }}
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "main" . }}class="k-active"{{ end }}>{{ .Name | lower }}</a>
+      {{ end }}
+    </div>
+  </nav>
+</div>

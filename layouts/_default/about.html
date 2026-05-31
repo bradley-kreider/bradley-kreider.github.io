@@ -1,29 +1,21 @@
 {{ define "main" }}
-  {{ .Scratch.Set "scope" "single" }}
-  {{ $topClass := cond (hasPrefix site.Params.header.layout "fixed") "lg:top-[140px]" "lg:top-10" }}
-  <article>
-    <header class="mt-5 max-w-prose">
-      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        {{ .Title | emojify }}
-      </h1>
-    </header>
-
-    <section class="flex flex-col max-w-full mt-6 lg:flex-row">
-      {{/* Right sidebar: TOC + photo */}}
-      <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
-        <div class="lg:sticky {{ $topClass }} flex flex-col gap-6">
+<div class="k-page not-prose">
+  <div class="k-prose-page" style="padding-left:0;padding-right:0;">
+    <article>
+      <h1>{{ .Title | emojify }}</h1>
+      <div class="k-about">
+        <div class="k-about-content prose dark:prose-invert">
+          {{ .Content }}
+        </div>
+        <div>
           <img
             src="/img/about.jpg"
             alt="Brad Kreider"
-            class="about-photo w-full rounded-2xl"
+            class="k-about-photo"
             loading="lazy">
         </div>
       </div>
-
-      {{/* Left: content */}}
-      <div class="about-content prose dark:prose-invert min-w-0 max-w-prose">
-        {{ .Content }}
-      </div>
-    </section>
-  </article>
+    </article>
+  </div>
+</div>
 {{ end }}
