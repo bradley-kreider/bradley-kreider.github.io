@@ -876,6 +876,112 @@ footer#site-footer,
 }
 .k-blog-item:hover .k-arrow { transform: translateX(4px); }
 
+/* ── Reading list ── */
+.k-books {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.k-book {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: var(--gap-4);
+  padding: var(--gap-4) 0;
+  border-bottom: 1px solid var(--line-soft);
+  align-items: start;
+}
+
+.k-book-cover {
+  width: 100px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  display: block;
+  background: var(--bg-elev);
+  flex-shrink: 0;
+}
+
+.k-book-cover-placeholder {
+  width: 100px;
+  aspect-ratio: 2 / 3;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-image: repeating-linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--accent) 9%, transparent) 0 8px,
+    transparent 8px 18px
+  );
+}
+
+.k-book-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-2);
+}
+
+.k-book-title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--fg);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.k-book-author {
+  font-size: var(--fs-xs);
+  color: var(--fg-faint);
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
+.k-book-stars {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.k-book-star {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background: var(--line);
+}
+
+.k-book-star.filled {
+  background: var(--accent);
+}
+
+.k-book-star.half {
+  background: linear-gradient(to right, var(--accent) 50%, var(--line) 50%);
+}
+
+.k-book-rating-label {
+  font-size: var(--fs-xs);
+  color: var(--fg-faint);
+  margin-left: 6px;
+}
+
+.k-book-review {
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  line-height: var(--lh-body);
+  max-width: 64ch;
+  margin: 0;
+}
+
+.k-book-genre {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .k-hero {

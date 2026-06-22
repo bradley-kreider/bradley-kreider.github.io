@@ -1,0 +1,69 @@
+{{ define "main" }}
+  <div class="k-page not-prose">
+    <div style="padding: var(--gap-4) 0 var(--gap-6);">
+      <header class="k-article-block" style="margin-bottom: var(--gap-4);">
+        <h1 class="k-article-title">{{ .Title | emojify }}</h1>
+        {{ with .Params.description }}
+          <p style="font-size:var(--fs-sm);color:var(--fg-muted);margin:0;margin-top:var(--gap-1);">{{ . }}</p>
+        {{ end }}
+        <div style="margin-top:var(--gap-2);font-size:var(--fs-xs);color:var(--fg-faint);">
+          {{ len .Params.books }} books
+        </div>
+      </header>
+
+      <div class="k-books">
+        {{ range .Params.books }}
+          <div class="k-book">
+
+            {{/* Cover image */}}
+            {{ if .cover }}
+              <img class="k-book-cover" src="{{ .cover }}" alt="Cover of {{ .title }}" loading="lazy">
+            {{ else }}
+              <div class="k-book-cover-placeholder"></div>
+            {{ end }}
+
+            <div class="k-book-body">
+
+              <div>
+                <div class="k-book-title">{{ .title }}</div>
+                <div class="k-book-author" style="text-transform:capitalize;">by {{ .author }}{{ with .date_read }} &middot; <span style="color:var(--fg-faint);">{{ . }}</span>{{ end }}</div>
+              </div>
+
+              {{/* Star rating — work in half-steps (0–10) to avoid float comparison issues */}}
+              {{ $rating := .rating | default 0 }}
+              {{ $halves := int (math.Round (mul (float $rating) 2)) }}
+              <div class="k-book-stars">
+                {{ range $i := seq 1 5 }}
+                  {{ $threshold := mul $i 2 }}
+                  {{ if ge $halves $threshold }}
+                    <span class="k-book-star filled"></span>
+                  {{ else if ge $halves (sub $threshold 1) }}
+                    <span class="k-book-star half"></span>
+                  {{ else }}
+                    <span class="k-book-star"></span>
+                  {{ end }}
+                {{ end }}
+                <span class="k-book-rating-label">{{ $rating }}/5</span>
+              </div>
+
+              {{/* Genre tags */}}
+              {{ with .genres }}
+                <div class="k-book-genre">
+                  {{ range . }}
+                    <span class="k-tag"><span class="k-dot"></span>{{ . }}</span>
+                  {{ end }}
+                </div>
+              {{ end }}
+
+              {{/* Review */}}
+              {{ with .review }}
+                <p class="k-book-review">{{ . }}</p>
+              {{ end }}
+
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+{{ end }}

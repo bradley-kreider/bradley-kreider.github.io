@@ -9,9 +9,9 @@
     </div>
 
     <div class="k-blog-list">
-      {{ range (.Pages.GroupByDate "2006") }}
+      {{ range (.Pages.GroupByDate "2006" "desc") }}
         <div class="k-blog-year">{{ .Key }}</div>
-        {{ range .Pages }}
+        {{ range .Pages.ByWeight }}
           <a class="k-blog-item" href="{{ .RelPermalink }}">
             <span class="k-date">{{ .Date.Format "Jan 02" | lower }}</span>
             <span class="k-post-title">{{ .Title | emojify }}</span>

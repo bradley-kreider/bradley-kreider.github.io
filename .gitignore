@@ -5,3 +5,6 @@ node_modules/
 SITE_GUIDE.md
 CREDITS.md
 .claude/worktrees/
+deploy.ps1
+deploy.sh
+instructions.MD
