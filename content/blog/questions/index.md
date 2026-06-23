@@ -1,7 +1,7 @@
 ﻿---
 title: "The Legacy of AI"
 date: 2026-06-22
-description: ""
+description: "Sharing a few thoughts on how the next generation will interact with AI"
 summary: ""
 tags: ["AI"]
 showHero: false
