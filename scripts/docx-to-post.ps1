@@ -20,7 +20,7 @@ if (-not (Test-Path $pandoc)) {
 if ($File -ne "") {
     $docxFiles = @(Get-Item $File)
 } else {
-    $docxFiles = @(Get-ChildItem -Path $inbox -Filter "*.docx")
+    $docxFiles = @(Get-ChildItem -Path $inbox -Filter "*.docx" | Where-Object { $_.Extension -eq ".docx" })
 }
 
 if ($docxFiles.Count -eq 0) {
@@ -39,7 +39,7 @@ foreach ($docx in $docxFiles) {
     $mediaDir = Join-Path $postDir "images-tmp"
 
     if (Test-Path $postDir) {
-        Write-Host "  WARNING: $postDir already exists — skipping to avoid overwrite." -ForegroundColor Yellow
+        Write-Host "  Skipping: content/blog/$slug/ already exists (already converted)." -ForegroundColor DarkGray
         continue
     }
 
@@ -101,11 +101,12 @@ draft: true
     $indexMd = Join-Path $postDir "index.md"
     Set-Content -Path $indexMd -Value ($frontmatter + $body) -Encoding UTF8
 
-    # Delete the source docx from inbox
-    Remove-Item $docx.FullName -Force
+    # Rename .docx to .docx.done so it stays in inbox but won't be reprocessed
+    Rename-Item $docx.FullName "$($docx.FullName).done" -Force
 
     Write-Host "  Created: content/blog/$slug/index.md" -ForegroundColor Green
-    Write-Host "  Post is set to draft:true — review it, then set draft:false to publish." -ForegroundColor DarkGray
+    Write-Host "  Source renamed to $($docx.Name).done - won't be reprocessed." -ForegroundColor DarkGray
+    Write-Host "  Post is set to draft:true - review it, then set draft:false to publish." -ForegroundColor DarkGray
 }
 
 Write-Host ""
