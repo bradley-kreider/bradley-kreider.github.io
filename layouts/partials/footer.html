@@ -18,6 +18,7 @@
     {{ with .Site.Params.stravaUrl }}
       <a href="{{ . | safeURL }}" target="_blank" rel="noopener noreferrer">strava</a>
     {{ end }}
+    <a href="https://kreider.dev/weather-app" target="_blank" rel="noopener noreferrer">weather-app</a>
     {{ with .Site.Params.Author.links }}
       {{ range $links := . }}
         {{ range $name, $url := $links }}

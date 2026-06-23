@@ -1,4 +1,19 @@
 {
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NonInteractive -File \"C:\\dev\\portfolio website\\scripts\\docx-hook.ps1\"",
+            "timeout": 60,
+            "statusMessage": "Converting Word doc to Hugo post..."
+          }
+        ]
+      }
+    ]
+  },
   "permissions": {
     "allow": [
       "WebFetch(domain:merox.dev)",
