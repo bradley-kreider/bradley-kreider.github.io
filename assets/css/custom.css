@@ -831,6 +831,28 @@ footer#site-footer,
   margin: 0 !important;
   border-radius: 0 !important;
 }
+.k-about .prose p {
+  margin-bottom: var(--gap-3) !important;
+  line-height: var(--lh-body) !important;
+  color: var(--fg) !important;
+}
+.k-about .prose h2 {
+  margin-top: var(--gap-4) !important;
+  margin-bottom: var(--gap-2) !important;
+  border-left: 3px solid var(--accent);
+  padding-left: 0.75rem;
+}
+.k-about .prose ul {
+  margin-top: var(--gap-2) !important;
+  margin-bottom: var(--gap-3) !important;
+  padding-left: 1.25rem !important;
+  color: var(--fg) !important;
+}
+.k-about .prose li {
+  margin-bottom: var(--gap-2) !important;
+  line-height: var(--lh-body) !important;
+}
+.k-about .prose li::marker { color: var(--accent) !important; }
 
 /* ── Blog list overrides ── */
 .k-blog-list {

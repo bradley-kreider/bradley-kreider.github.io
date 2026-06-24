@@ -14,6 +14,9 @@ layout: "about"
 
 I'm a Data and Computer Science student at Messiah University in the Cumberland Valley of Pennsylvania. I work primarily with Python, R, and Java, and I am very passionate about data science and visualization. I am currently looking for an internship in the Data / Computer Science Space, feel free to reach out to me on LinkedIn!
 
+
+
+
 Outside of my academic work, you might find me
 
 - Out on a run training for NCAA DIII Cross Country/Track & Field (See my Strava widget for my activities!)
@@ -21,7 +24,7 @@ Outside of my academic work, you might find me
 - Driving the state forest roads of PA to access remote campsites
 - Backpacking with friends in beautiful landscapes
 
-
+  
 ## Find Me Elsewhere
 
 <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:0.75rem;">
