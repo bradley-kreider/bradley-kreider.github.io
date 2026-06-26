@@ -57,3 +57,8 @@ disableTextInHeader = true
 [taxonomy]
   showTermCount = true
   cardView      = true
+
+# -- Analytics --
+[umamiAnalytics]
+  websiteid = "859e82fb-ea5b-4427-9af8-b3f6502e8283"
+  domain    = "cloud.umami.is"
