@@ -12,7 +12,7 @@
       </header>
 
       <div class="k-books">
-        {{ range .Params.books }}
+        {{ range sort .Params.books "sort_date" "desc" }}
           <div class="k-book">
 
             {{/* Cover image */}}
