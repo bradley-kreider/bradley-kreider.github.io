@@ -8,10 +8,10 @@ TOKEN_RESPONSE=$(curl -s -X POST https://www.strava.com/oauth/token \
   -d "grant_type=refresh_token" \
   -d "refresh_token=${STRAVA_REFRESH_TOKEN}")
 
-ACCESS_TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.access_token')
+ACCESS_TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.access_token // empty')
 
-if [ -z "$ACCESS_TOKEN" ] || [ "$ACCESS_TOKEN" = "null" ]; then
-  echo "Failed to get access token"
+if [ -z "$ACCESS_TOKEN" ]; then
+  echo "Failed to get access token. Strava response:"
   echo "$TOKEN_RESPONSE"
   exit 1
 fi
@@ -20,6 +20,14 @@ fi
 ACTIVITY=$(curl -s -X GET \
   "https://www.strava.com/api/v3/athlete/activities?page=1&per_page=1" \
   -H "Authorization: Bearer ${ACCESS_TOKEN}")
+
+# Verify it's an array (not an error object)
+IS_ARRAY=$(echo "$ACTIVITY" | jq 'if type == "array" then true else false end')
+if [ "$IS_ARRAY" != "true" ]; then
+  echo "Strava activities API returned an error:"
+  echo "$ACTIVITY"
+  exit 1
+fi
 
 # Extract photo URL if available
 PHOTO_URL=$(echo "$ACTIVITY" | jq -r '.[0].photos.primary.urls["600"] // ""')
