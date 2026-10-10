@@ -21,12 +21,22 @@ ACTIVITY=$(curl -s -X GET \
   "https://www.strava.com/api/v3/athlete/activities?page=1&per_page=1" \
   -H "Authorization: Bearer ${ACCESS_TOKEN}")
 
+echo "DEBUG: raw activities response:"
+echo "$ACTIVITY"
+
 # Verify it's an array (not an error object)
 IS_ARRAY=$(echo "$ACTIVITY" | jq 'if type == "array" then true else false end')
 if [ "$IS_ARRAY" != "true" ]; then
   echo "Strava activities API returned an error:"
   echo "$ACTIVITY"
   exit 1
+fi
+
+ACTIVITY_COUNT=$(echo "$ACTIVITY" | jq 'length')
+echo "DEBUG: activity count returned: $ACTIVITY_COUNT"
+if [ "$ACTIVITY_COUNT" -eq 0 ]; then
+  echo "No activities returned by Strava API (empty array). Leaving existing data/strava.json untouched."
+  exit 0
 fi
 
 # Extract photo URL if available
