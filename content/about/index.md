@@ -19,7 +19,7 @@ I'm a Data and Computer Science student at Messiah University in the Cumberland 
 
 Outside of my academic work, you might find me
 
-- Out on a run training for NCAA DIII Cross Country/Track & Field (See my Strava widget for my activities!)
+- Out on a run training for NCAA DIII Cross Country/Track & Field
 - Deep in a river or back on a mountain stream trying to convince a trout I know what I'm doing
 - Driving the state forest roads of PA to access remote campsites
 - Backpacking with friends in beautiful landscapes

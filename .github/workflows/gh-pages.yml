@@ -27,14 +27,6 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - name: Fetch latest Strava activity
-        env:
-          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
-          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
-          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
-        run: bash scripts/fetch_strava.sh
-        continue-on-error: true   # don't fail the build if Strava is unreachable
-
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
