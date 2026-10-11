@@ -1,0 +1,44 @@
+{{- $now := .Site.Params.timelineNow | default "2026-10-10" -}}
+{{- $nowTime := time.AsTime $now -}}
+{{- $items := hugo.Data.experience -}}
+
+{{- /* Axis spans whole years, one grid column per month. */ -}}
+{{- $starts := slice -}}
+{{- range $items }}{{ $starts = $starts | append (time.AsTime .start_date) }}{{ end -}}
+{{- $startYear := (index (sort $starts) 0).Year -}}
+{{- $endYear := $nowTime.Year -}}
+{{- $yearCount := add (sub $endYear $startYear) 1 -}}
+{{- $columns := mul $yearCount 12 -}}
+
+{{- $sorted := sort $items "start_date" -}}
+
+<div class="k-timeline not-prose" style="--columns:{{ $columns }}">
+  <ol class="k-timeline__rows">
+    {{- range $sorted }}
+    {{- $start := time.AsTime .start_date -}}
+    {{- $end := $nowTime -}}
+    {{- $ongoing := eq .end_date "" -}}
+    {{- if not $ongoing }}{{ $end = time.AsTime .end_date }}{{ end -}}
+
+    {{- /* Month index from axis origin, 1-based for grid-column. */ -}}
+    {{- $startCol := add (add (mul (sub $start.Year $startYear) 12) (sub (int $start.Month) 1)) 1 -}}
+    {{- $endCol := add (add (mul (sub $end.Year $startYear) 12) (int $end.Month)) 1 -}}
+    {{- if le $endCol $startCol }}{{ $endCol = add $startCol 1 }}{{ end -}}
+
+    <li class="k-timeline__row{{ if $ongoing }} k-timeline__row--open{{ end }}">
+      <p class="k-timeline__label">
+        <span class="k-timeline__primary">{{ .role }}</span>
+        {{- with .org }}<span class="k-timeline__secondary">{{ . }}</span>{{ end }}
+        <span class="k-timeline__meta">{{ .start }} &ndash; {{ .end }}</span>
+      </p>
+      <span class="k-timeline__bar" style="grid-column:{{ $startCol }}/{{ $endCol }}" aria-hidden="true"></span>
+    </li>
+    {{- end }}
+  </ol>
+
+  <ol class="k-timeline__axis" aria-hidden="true">
+    {{- range $i := seq 0 (sub $yearCount 1) }}
+    <li style="grid-column:{{ add (mul $i 12) 1 }}/span 12">{{ add $startYear $i }}</li>
+    {{- end }}
+  </ol>
+</div>

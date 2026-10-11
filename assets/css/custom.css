@@ -815,6 +815,95 @@ footer#site-footer,
 }
 .k-about .prose li::marker { color: var(--accent) !important; }
 
+/* ── Career section (About) ── */
+.k-career { margin-top: var(--gap-6); }
+.k-career-title {
+  margin: 0 0 var(--gap-4);
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+}
+.k-career-actions { margin-top: var(--gap-4); }
+.k-career-cv {
+  font-size: var(--fs-sm);
+  color: var(--accent-ink) !important;
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+.k-career-cv:hover { color: var(--accent) !important; }
+
+/* ── Timeline (About / Work Experience) ── */
+.k-timeline {
+  margin-top: var(--gap-4);
+}
+.k-timeline__rows,
+.k-timeline__axis {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+.k-timeline__rows { row-gap: var(--gap-3); }
+.k-timeline__row {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  row-gap: 8px;
+  margin: 0 !important;
+}
+.k-timeline__row::marker { content: none; }
+.k-timeline__label {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin: 0 !important;
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+.k-timeline__primary {
+  font-weight: 600;
+  color: var(--fg);
+}
+.k-timeline__secondary { color: var(--fg-muted); }
+.k-timeline__meta {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--fg-faint);
+}
+.k-timeline__bar {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent-wash);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.k-timeline__row--open .k-timeline__bar {
+  border-radius: 999px 0 0 999px;
+  background: linear-gradient(to right, var(--accent) 70%, color-mix(in oklch, var(--accent) 15%, transparent));
+  box-shadow: none;
+}
+.k-timeline__axis {
+  margin-top: var(--gap-3) !important;
+  padding-top: 10px !important;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-faint);
+}
+.k-timeline__axis li { margin: 0 !important; }
+.k-timeline__axis li::marker { content: none; }
+@media (max-width: 640px) {
+  .k-timeline__axis li:nth-child(even) { visibility: hidden; }
+}
+
 /* ── Blog list overrides ── */
 .k-blog-list {
   border-top: 1px solid var(--line);
